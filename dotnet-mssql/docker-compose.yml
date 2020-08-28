@@ -1,0 +1,22 @@
+version: "3"
+services:
+        mssql:
+                image: microsoft/mssql-server-linux:latest
+                container_name: mssql
+                ports:
+                        - "1433:1433"
+                environment:
+                        - ACCEPT_EULA=Y
+                        - MSSQL_PID=Express
+                        - SA_PASSWORD=Password123!
+
+        app:
+                image: mcr.microsoft.com/dotnet/core/sdk:latest
+                container_name: app
+                volumes:
+                - ./src:/usr/src/app
+                environment:
+                - USER
+                stdin_open: true 
+                tty: true
+                working_dir: /usr/src/app
