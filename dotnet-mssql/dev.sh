@@ -1,4 +1,4 @@
 #!/bin/sh
 docker-compose up -d
-docker attach app
+docker attach dotnet
 docker-compose down

@@ -10,13 +10,22 @@ services:
                         - MSSQL_PID=Express
                         - SA_PASSWORD=Password123!
 
-        app:
+        redis:
+                image: redis:latest
+                container_name: redis
+                ports:
+                        - "6379:6379"                        
+
+
+
+
+        dotnet:
                 image: mcr.microsoft.com/dotnet/core/sdk:latest
-                container_name: app
+                container_name: dotnet
                 volumes:
-                - ./src:/usr/src/app
+                - ./src:/usr/src
                 environment:
                 - USER
                 stdin_open: true 
                 tty: true
-                working_dir: /usr/src/app
+                working_dir: /usr/src
