@@ -1,5 +1,7 @@
 version: "3"
 services:
+
+        # Data stores
         mssql:
                 image: microsoft/mssql-server-linux:latest
                 container_name: mssql
@@ -16,7 +18,17 @@ services:
                 ports:
                         - "6379:6379"                        
 
-
+        # Dev/build containers
+        rust:
+                image: rust:latest
+                container_name: rust
+                volumes:
+                - ./src:/usr/src
+                environment:
+                - USER    # cargo needs that one
+                stdin_open: true 
+                tty: true
+                working_dir: /usr/src
 
 
         dotnet:
