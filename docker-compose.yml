@@ -6,17 +6,28 @@ services:
                 image: microsoft/mssql-server-linux:latest
                 container_name: mssql
                 ports:
-                        - "1433:1433"
+                - "1433:1433"
                 environment:
-                        - ACCEPT_EULA=Y
-                        - MSSQL_PID=Express
-                        - SA_PASSWORD=Password123!
+                - ACCEPT_EULA=Y
+                - MSSQL_PID=Express
+                - SA_PASSWORD=Password123!
 
         redis:
                 image: redis:latest
                 container_name: redis
                 ports:
-                        - "6379:6379"                        
+                - "6379:6379"      
+
+        elasticsearch:
+                image: elasticsearch:7.9.0  # doesn't have a "latest"
+                container_name: elasticsearch
+                environment:
+                - discovery.type=single-node
+                ports:
+                - "9200:9200"
+                - "9300:9300"
+
+        # Middleware
 
         # Dev/build containers
         rust:
