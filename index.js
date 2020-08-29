@@ -6,6 +6,7 @@ var components = [
     tags: ["latest"],
     ports: ["1433:1433"],
     environment: ["ACCEPT_EULA=Y", "MSSQL_PID=Express", "SA_PASSWORD=Password123!"],
+    checked: true
   },
 
   {
@@ -44,14 +45,16 @@ var app = new Vue({
         update: function() {
             lines = ["version: \"3\"", "services:", ""]
             for (var i=0; i<components.length; i++) {
-                // TODO only checked ones
                 var component = components[i];
+                if (!component.checked) continue;
                 lines.push("\t" + component.name + ":")
             }
             this.dockercompose = lines.join("\n")
         },
   }
 })
+
+app.update()
 
 
 
