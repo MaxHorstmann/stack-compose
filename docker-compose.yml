@@ -36,6 +36,17 @@ services:
                 - "9200:9200"
                 - "9300:9300"
 
+        mongo:
+                image: mongo:latest
+                container_name: mongo
+                environment:
+                - MONGO_INITDB_ROOT_USERNAME: root
+                - MONGO_INITDB_ROOT_PASSWORD: Password123!                
+                ports:
+                - "27017:27017"  # db
+                - "28017:28017"  # web
+
+
         # Middleware
         # TODO
 
