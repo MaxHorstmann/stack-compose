@@ -32,9 +32,29 @@ var components = [
 ]
 
 var app = new Vue({
-  el: '#app',
-  data: {
-    message: 'Hello Vue!',
-    components: components
+    el: '#app',
+
+    data: {
+        message: 'Hello Vue!',
+        components: components,
+        dockercompose: "version: 3"
+    },
+
+    methods: {
+        update: function() {
+            lines = ["version: \"3\"", "services:", ""]
+            for (var i=0; i<components.length; i++) {
+                // TODO only checked ones
+                var component = components[i];
+                lines.push("\t" + component.name + ":")
+            }
+            this.dockercompose = lines.join("\n")
+        },
   }
 })
+
+
+
+
+
+
