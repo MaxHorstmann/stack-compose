@@ -7,27 +7,27 @@
     <title>Stack Compose</title>
   </head>
   <body>
-        <h1>Stack Compose</h1>
         <div id="app" class="container-fluid">
+            <h1>Stack Compose</h1> 
             <div class="row">
-                <div v-for="group in groups">
-                    <div class="col-sm">
-                        <h2>{{ group.name }}</h2>
-                        <div v-for="component in group.components">
-                            <input type=checkbox v-on:change="update" v-model="component.checked" :id="component.name">
-                            <span>{{ component.name }}</span>
-                        </div>
+                <div v-for="group in groups" class="col-sm">
+                    <h2>{{ group.name }}</h2>
+                    <div v-for="component in group.components">
+                        <input type=checkbox v-on:change="update" v-model="component.checked" :id="component.name">
+                        <span>{{ component.name }}</span>
                     </div>
                 </div>
             </div>
-            <div>
-                <div>docker-compose.yml:</div>
-                <pre style="background-color: lightgray">{{ dockercompose }}</pre>
+            <h1>docker-compose.yml:</h1>
+            <div class="row">
+                <div class="col-lg">
+                    <pre style="background-color: lightgray">{{ dockercompose }}</pre>
+                </div>
             </div>
         </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="index.js"></script>
 
   </body>
 </html>
