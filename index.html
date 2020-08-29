@@ -12,20 +12,23 @@
   </head>
   <body>
     <div id="app">
-        <h1>Stack Compose!</h1>
+        <h1>Stack Compose</h1>
 
         <div>
             <form method="GET">
-                <div v-for="component in components">
-                    <input type=checkbox v-on:change="update" v-model="component.checked" :id="component.name">
-                    <span>{{ component.name }}</span>
+                <div v-for="group in groups">
+                    <h2>{{ group.name }}</h2>
+                    <div v-for="component in group.components">
+                        <input type=checkbox v-on:change="update" v-model="component.checked" :id="component.name">
+                        <span>{{ component.name }}</span>
+                    </div>
                 </div>
             </form>
         </div>
 
         <div>
-            <div>docker-compose.yml</div>
-            <pre>{{ dockercompose }}</pre>
+            <div>docker-compose.yml:</div>
+            <pre style="background-color: lightgray">{{ dockercompose }}</pre>
         </div>
     </div>
 
