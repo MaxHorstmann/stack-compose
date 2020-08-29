@@ -11,10 +11,22 @@
     <title>stack-compose</title>
   </head>
   <body>
-    <h1>Stack Compose!</h1>
-
     <div id="app">
-        {{ message }}
+        <h1>Stack Compose!</h1>
+
+        <div>
+            <form method="GET">
+                <div v-for="component in components">
+                    <input type=checkbox>
+                    <span>{{ component.name }}</span>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <div>docker-compose.yml</div>
+            <textarea readonly>{{ dockercompose }}</textarea>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->
