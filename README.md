@@ -1,2 +1,3 @@
-# TechStackMixer
-Mix &amp; match your own tech stack, generate a ready-to-use dev environment
+# Stack-Compose
+
+Create your tech stack and get a read-to-use docker-compose file.
