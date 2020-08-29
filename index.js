@@ -22,6 +22,20 @@ var groups =
                   }
                 ]
         },
+        {
+            name: "Data stores (NoSQL)",
+            components: 
+                [
+                  {
+                    name : "mongo",
+                    image: "mongo",
+                    tags: ["latest"],
+                    ports: ["27017:27017", "28017:28017"],
+                    environment: ["MONGO_INITDB_ROOT_USERNAME=root", "MONGO_INITDB_ROOT_PASSWORD=Password123!"],
+                  }
+                ]
+        },
+
 
         {
             name: "Development",
