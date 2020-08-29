@@ -32,7 +32,16 @@ var groups =
                     tags: ["latest"],
                     ports: ["27017:27017", "28017:28017"],
                     environment: ["MONGO_INITDB_ROOT_USERNAME=root", "MONGO_INITDB_ROOT_PASSWORD=Password123!"],
-                  }
+                  },
+
+                  {
+                    name : "elasticsearch",
+                    image: "elasticsearch",
+                    tags: ["7.9.0"],
+                    ports: ["9200:9200", "9300:9300"],
+                    environment: ["discovery.type=single-node"],
+                  },
+
                 ]
         },
 
@@ -50,8 +59,17 @@ var groups =
                         stdin_open: true,
                         tty: true,
                         working_dir: "/usr/src"
-                    }
-                ]
+                    },
+                    {
+                        name : "rust",
+                        image: "rust",
+                        tags: ["latest"],
+                        //ports: ["8000:80"],
+                        volumes: [ "./src:/usr/src" ],
+                        stdin_open: true,
+                        tty: true,
+                        working_dir: "/usr/src"
+                    }                ]
         }
 
     ]
