@@ -141,7 +141,7 @@ var app = new Vue({
                 }
                 
             }
-            this.dockercompose = lines.join("\n")
+            this.dockercompose = lines.join("\n").replaceAll("\t", "  ")
         },
   }
 })
