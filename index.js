@@ -64,6 +64,7 @@ var groups =
                         name : "rust",
                         image: "rust",
                         tags: ["latest"],
+                        environment: ["USER"], // Cargo needs this
                         //ports: ["8000:80"],
                         volumes: [ "./src:/usr/src" ],
                         stdin_open: true,
