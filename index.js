@@ -84,6 +84,22 @@ var app = new Vue({
     },
 
     methods: {
+        download: function() {
+            // https://stackoverflow.com/a/33542499
+            filename = "docker-compose.yml";
+            var blob = new Blob([this.dockercompose], {type: 'text/yaml'});
+            if(window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveBlob(blob, filename);
+            }
+            else{
+                var elem = window.document.createElement('a');
+                elem.href = window.URL.createObjectURL(blob);
+                elem.download = filename;        
+                document.body.appendChild(elem);
+                elem.click();        
+                document.body.removeChild(elem);
+            }
+        },
         update: function() {
             lines = ["version: \"3\"", "services:"]
             for (var i=0; i<groups.length; i++) {
