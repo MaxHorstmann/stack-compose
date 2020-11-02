@@ -70,7 +70,18 @@ var groups =
                         stdin_open: true,
                         tty: true,
                         working_dir: "/usr/src"
-                    }                ]
+                    },
+                    {
+                        name : "go",
+                        image: "golang",
+                        tags: ["latest"],
+                        //ports: ["8000:80"],
+                        volumes: [ "./src:/usr/src" ],
+                        stdin_open: true,
+                        tty: true,
+                        working_dir: "/usr/src"
+                    }
+                ]
         }
 
     ]
