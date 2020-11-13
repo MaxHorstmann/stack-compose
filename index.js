@@ -52,7 +52,7 @@ var groups =
                 [
                     {
                         name : "dotnet",
-                        image: "mcr.microsoft.com/dotnet/core/sdk",
+                        image: "mcr.microsoft.com/dotnet/sdk",
                         tags: ["latest"],
                         //ports: ["8000:80"],
                         volumes: [ "./src:/usr/src" ],
